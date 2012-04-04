@@ -1,0 +1,51 @@
+Alabama	Montgomery	Yellowhammer State	False
+Alaska	Juneau	The Last Frontier	True
+Arizona	Phoenix	The Grand Canyon State	False
+Arkansas	Little Rock	The Natural State	False
+California	Sacramento	The Golden State	False
+Colorado	Denver	The Centennial State	False
+Connecticut	Hartford	The Constitution State	True
+Delaware	Dover	The First State	True
+Florida	Tallahassee	The Sunshine State	False
+Georgia	Atlanta	The Peach State	False
+Hawaii	Honolulu	The Aloha State	False
+Idaho	Boise	The Gem State	True
+Illinois	Springfield	Prairie State	True
+Indiana	Indianapolis	The Hoosier State	True
+Iowa	Des Moines	The Hawkeye State	True
+Kansas	Topeka	The Sunflower State	False
+Kentucky	Frankfort	The Bluegrass State	False
+Louisiana	Baton Rouge	The Pelican State	False
+Maine	Augusta	The Pine Tree State	True
+Maryland	Annapolis	The Old Line State	False
+Massachusetts	Boston	The Bay State	True
+Michigan	Lansing	The Great Lakes State	True
+Minnesota	St. Paul	The North Star State	True
+Mississippi	Jackson	The Magnolia State	False
+Missouri	Jefferson City	The Show Me State	False
+Montana	Helena	The Treasure State	True
+Nebraska	Lincoln	The Cornhusker State	True
+Nevada	Carson City	The Silver State	False
+New Hampshire	Concord	The Granite State	True
+New Jersey	Trenton	The Garden State	True
+New Mexico	Santa Fe	The Land of Enchantment	False
+New York	Albany	The Empire State	True
+North Carolina	Raleigh	The Tar Heel State	False
+North Dakota	Bismarck	The Peace Garden State	True
+Ohio	Columbus	The Buckeye State	True
+Oklahoma	Oklahoma City  	The Sooner State	False
+Oregon	Salem	The Beaver State	True
+Pennsylvania	Harrisburg	The Keystone State	True
+Rhode Island	Providence	The Ocean State	True
+South Carolina	Columbia	The Palmetto State	False
+South Dakota	Pierre	Mount Rushmore State	True
+Tennessee	Nashville	The Volunteer State	False
+Texas	Austin	The Lone Star State	False
+Utah	Salt Lake City	The Beehive State	False
+Vermont	Montpelier	The Green Mountain State	True
+Virginia	Richmond	The Old Dominion State	False
+Washington	Olympia	The Evergreen State	True
+West Virginia	Charleston	The Mountain State	False
+Wisconsin	Madison	The Badger State	True
+Wyoming	Cheyenne	The Equality or Cowboy State	True
+Washington D.C.	N/A	N/A	True
