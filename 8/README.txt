@@ -1,4 +1,9 @@
+NOTE: THE SUBMISSION IN THE DROPBOX IS ONLY THERE TO SHOW IT WAS TURNED IN 
+BEFORE 10 PM ON SUNDAY. PLEASE FOLLOW THE INSTRUCTIONS IN THE EMAIL FOR 
+GETTING THE CODE FROM GIT.
+
 Files included:
+
 - ElectionPrediction.py: Main. To be run from the command line
 - gitlog.txt - "Answer" to HW question 2
 - race_prediction_data - Folder containing newest race prediction data. The 
