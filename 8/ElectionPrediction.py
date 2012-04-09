@@ -6,7 +6,7 @@ from matplotlib.pyplot import *
 
 # Setup appropriate path for importing HW5 modules
 import sys
-sys.path.append('/home/ross/Dropbox/AY250/HW/5/')
+sys.path.append('../5/')
 
 # Import HW 5 modules
 import createDatabase
@@ -14,12 +14,13 @@ import racedb as rdb
 
 # Create parser
 parser = argparse.ArgumentParser(description='Election Application')
-parser.add_argument('-c', action='store', dest='candidate', \
+parser.add_argument('-c', action='store', dest='candidate', default='Obama', \
                     help="Store the candidate's name")
-parser.add_argument('-r', action='store', dest='raceName', \
+parser.add_argument('-r', action='store', dest='raceName', default='PresElect',\
                     help="Store the race name. Options are 'RepNom, RepVPNom,\
                          'PresElect'")
-parser.add_argument('-d', action='store', dest='date', help='Enter the date\
+parser.add_argument('-d', action='store', dest='date', default='09-10-2011',\
+                    help='Enter the date\
                     you are interested in seeing information about. Must be\
                     in the format mm-dd-yyyy')
 parser.add_argument('-p', action='store_true', default=False, dest='pltflg',\
@@ -69,7 +70,7 @@ if results.pltflg:
     val = rdb.getPriceOnDayForCand( cursor, i, results.raceName, canName )
     if val > -1: prices.append( (i, val) )
 
-  # Plot the prices
+  # Plot the prices with the day of interest highlighted
   hold(True)
   priceAry = np.array(prices, dtype=object)
   plot( priceAry[:,0], priceAry[:,1] )
