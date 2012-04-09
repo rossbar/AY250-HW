@@ -1,0 +1,83 @@
+commit 6f7591ae142b6ad72692a1b0982939039df01f1d
+Author: Ross Barnowski <rossbar@berkeley.edu>
+Date:   Wed Apr 4 23:03:51 2012 -0700
+
+    Added rough draft of the writeup to be handed in
+
+commit 77fda4fba93ba1763c583392fc3972609d4918dd
+Author: Ross Barnowski <Ross@Ross-Desktop.(none)>
+Date:   Wed Apr 4 22:02:13 2012 -0700
+
+    Final revision to code and addition of figures and output for writeup
+
+commit 4e1f487a583a81ba3de1fd933ddde47bd206dbc3
+Author: Ross Barnowski <Ross@Ross-Desktop.(none)>
+Date:   Wed Apr 4 21:52:15 2012 -0700
+
+    Deleted extraneous comments and added pertinent ones to files that will be turned in.
+
+commit 47efdde1f02c8f1d2f06e635bd498e7721684728
+Author: Ross Barnowski <Ross@Ross-Desktop.(none)>
+Date:   Wed Apr 4 21:32:47 2012 -0700
+
+    Also changed this function to modify the entire matrix, not just the first three elements
+
+commit a68bf762ec34e8e3be862fa0585537082db9f9e7
+Author: Ross Barnowski <Ross@Ross-Desktop.(none)>
+Date:   Wed Apr 4 21:29:43 2012 -0700
+
+    FULLY FUNCTIONAL - WORKS ALMOST TOO WELL. Problem was fixed by applying the step0 transfrom BEFORE the user-defined transform
+
+commit d95e9ec5a937bb78e1f58d0c82ea3e778e7507d4
+Author: Ross Barnowski <rossbar@berkeley.edu>
+Date:   Wed Apr 4 17:45:29 2012 -0700
+
+    Found Error in w
+
+commit 811534da5fbc43d73bf002cd13be73fb951838b1
+Author: Ross Barnowski <rossbar@berkeley.edu>
+Date:   Wed Apr 4 17:23:22 2012 -0700
+
+    Caught Error in q calculation (line 96)
+
+commit 486f0d0bec697b10b8314e957c70c955a677c9fd
+Author: Ross Barnowski <rossbar@berkeley.edu>
+Date:   Wed Apr 4 17:12:18 2012 -0700
+
+    Fixed projection, answer still incorrect - Check random point selection
+
+commit 2c9b02479dc7f1d354100a5ab50c7d702fb4dfc4
+Author: Ross Barnowski <rossbar@berkeley.edu>
+Date:   Wed Apr 4 17:05:14 2012 -0700
+
+    Fixed rotation, answer still not as good as when cheating
+
+commit abe14eaf50bdbd36ad41e8fcde492700cab7af72
+Author: Ross Barnowski <rossbar@berkeley.edu>
+Date:   Wed Apr 4 17:02:09 2012 -0700
+
+    Got rid of cheating method for HUstep0 and incorporated working function. Answer way off - need to fix part b): rotation=must fix, projection= maybe fix.
+
+commit 2699f395d9855c0c155aecfcad7508b521c6868a
+Author: Ross Barnowski <rossbar@berkeley.edu>
+Date:   Wed Apr 4 16:30:37 2012 -0700
+
+    Converted to function for use in main. Finished fully commenting file.
+
+commit 8c8f2d1db62abcd51e8d42b0cf4bf1bb61790906
+Author: Ross Barnowski <rossbar@berkeley.edu>
+Date:   Wed Apr 4 16:20:24 2012 -0700
+
+    Moved fixed HUstep0 to standalone so HUstep0 can be functionalized for use in main
+
+commit be32d731545b3891aa27ca10eb749546bcdddc32
+Author: Ross Barnowski <rossbar@berkeley.edu>
+Date:   Wed Apr 4 16:16:01 2012 -0700
+
+    Fixed HUstep0 - added catch in rotation matrix for result of acos
+
+commit bdf0eb67ce979ce21390f2f1a9dc41c5e280c9dc
+Author: Ross Barnowski <rossbar@berkeley.edu>
+Date:   Wed Apr 4 16:13:16 2012 -0700
+
+    First Commit: Added calculateRotationMatrix function (final form), CS280HW3_4 (main function), and HUstep0 (first step of HU algorithm; needs to be finalized and incorporated in main).
