@@ -39,13 +39,24 @@ def getRaceAndCanIds( fname ):
   canid = ' '.join( dl[0:-1] )
   return raceid, canid
 
-def getPriceOnDay( day, race ):
+def getPriceOnDay( cursor, day, race ):
   '''Returns the price of all candidates on a given day'''
   cmd = '''SELECT canid, price FROM %s WHERE day=%s AND raceid="%s"'''\
         %( 'predictions', day, race )
   cursor.execute(cmd)
   info = np.array( cursor.fetchall() )
   return info
+
+def getPriceOnDayForCand( cursor, day, race, cand ):
+  '''Returns the price of a specific candidate on a given day'''
+  cmd = '''select price from %s where day=%s and raceid="%s" and canid="%s"'''\
+        %( 'predictions', day, race, cand )
+  cursor.execute(cmd)
+  info = cursor.fetchall()
+  if info != []:
+    datum = float( info[0][0] )
+  else: datum = -1
+  return datum
 
 def getEfficiencyOnDay( cursor, tblname, day, race ):
   cmd = '''SELECT canid,price FROM %s WHERE day=%s AND raceid="%s"'''\
