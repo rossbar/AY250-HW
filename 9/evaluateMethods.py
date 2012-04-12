@@ -23,13 +23,22 @@ elif comp == 'ross-LBL': proc = 'Intel i7 (8 Core) - 2.4 GHz'
 serialAry = np.array(serialData)
 multiAry = np.array(multiproc)
 ipAry = np.array(ipParData)
-# Plot
-fig, ax = subplots(1, 1, sharex=True)
-ax.loglog( simDomain, serialAry[:,2], 'b-o', label='Serial')
-ax.loglog( simDomain, multiAry[:,2], 'g-o', label='Multiprocessing')
-ax.loglog( simDomain, ipAry[:,2], 'y-o', label='IPcluster')
-ax.set_title('Comparison of Parallel Execution Times with\n%s Processor'%proc )
-ax.set_xlabel('# of Darts')
-ax.set_ylabel('Log(Execution Time) [s], Solid Line')
-ax.legend(loc='upper left')
+# Initialize plot
+fig = figure()
+ax1 = fig.add_subplot(111)
+ax2 = ax1.twinx()
+# Plot execution times
+ax1.loglog( simDomain, serialAry[:,2], 'b-o', label='Serial')
+ax1.loglog( simDomain, multiAry[:,2], 'g-o', label='Multiprocessing')
+ax1.loglog( simDomain, ipAry[:,2], 'y-o', label='IPcluster')
+# Plot execution rates
+ax2.semilogx( simDomain, serialAry[:,3], 'b--.')#, label='Serial')
+ax2.semilogx( simDomain, multiAry[:,3], 'g--.')#, label='Multiprocessing')
+ax2.semilogx( simDomain, ipAry[:,3], 'y--.')#, label='IPcluster')
+# Decorate plot
+ax1.set_title('Comparison of Parallel Execution Times with\n%s Processor'%proc )
+ax1.set_xlabel('# of Darts')
+ax1.set_ylabel('Log(Execution Time) [s], Solid Line')
+ax2.set_ylabel('Simulation Rate (Darts/Sec) - Dashed Line')
+ax1.legend(loc='upper left')
 show()
