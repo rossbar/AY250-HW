@@ -2,6 +2,7 @@ from random import uniform
 from math import sqrt
 from time import time
 from multiprocessing import Pool, cpu_count
+from IPython.parallel import Client
 
 def estimatePi(numIn, total):
   return 4 * numIn / float(total)
@@ -47,3 +48,24 @@ def multiProcessingEstimator(numDarts):
   totalTime = end - start
   return estimatePi(numDartsInCircle, numDarts), numDarts, totalTime,\
          numDarts/totalTime
+
+def ipythonParEstimator(numDarts):
+  '''The third implementation of the code. From the top-level, it runs in an
+     identical fashion as the multiprocessing function, except it relies on
+     the parallel machinery built into IPython rather than an external module'''
+  # Determine the number of cores available
+  numProc = cpu_count()
+  # Divide the darts into even workloads among the cores
+  ndiv = int(round(numDarts/numProc))
+  # Run Execution loop
+  start = time()
+  # Generate the client
+  lc = Client()
+  dview = lc[:]
+  par = dview.map_async( determineNumDartsInCircle, [ndiv]*numProc )
+  numDartsInCircle = sum( par.result )
+  end = time()
+  totalTime = end - start
+  return estimatePi(numDartsInCircle, numDarts), numDarts, totalTime,\
+         numDarts/totalTime
+  
