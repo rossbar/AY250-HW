@@ -4,7 +4,7 @@ import dartEstimator
 simDomain = np.logspace(1,7,7)
 serialData = []
 for point in simDomain:
-  serialData.append( dartEstimator.serialPiEstimator( int(point) ) )
+  serialData.append( dartEstimator.serialEstimator( int(point) ) )
 
 # Plotting
 from matplotlib.pyplot import *

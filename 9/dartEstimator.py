@@ -1,22 +1,49 @@
 from random import uniform
 from math import sqrt
 from time import time
+from multiprocessing import Pool, cpu_count
 
-def serialPiEstimator(numDarts):
+def estimatePi(numIn, total):
+  return 4 * numIn / float(total)
+
+def determineNumDartsInCircle(numDarts):
+  '''Given the total number of darts, return what fraction were in the circle'''
+  numDartsInCircle = 0
+  for i in range(numDarts):
+    x, y = uniform(0,1), uniform(0,1)
+    if sqrt( (x - 0.5)**2 + (y - 0.5)**2 ) <= 0.5: numDartsInCircle += 1
+  return numDartsInCircle
+
+def serialEstimator(numDarts):
   '''Given a number of darts specified by the user, use monte-carlo methods to
      estimate the value of pi using a simple rejection method (no var.-red.). 
      This is the serial implementation. Returns the approximation, number of
      darts, the execution time, and the darts/time.'''
-  numDartsInCircle = 0
   
   # Start execution loop
   start = time()
-  for i in range(numDarts):
-    x, y = uniform(0,1), uniform(0,1)
-    if sqrt( (x - 0.5)**2 + (y - 0.5)**2 ) <= 0.5: numDartsInCircle += 1
+  numDartsInCircle = determineNumDartsInCircle( numDarts )
   end = time()
   totalTime = end - start # In seconds
 
-  # Estimate pi
-  piProx = 4 * numDartsInCircle / float( numDarts )
-  return piProx, numDarts, totalTime, numDarts/totalTime
+  return estimatePi(numDartsInCircle, numDarts), numDarts, totalTime,\
+         numDarts/totalTime
+
+def multiProcessingEstimator(numDarts):
+  '''Does the same as the above function except attempts to split the number
+     of darts into num_processors equivalent problems and use 
+     multiprocessing.pool to map the load to num_processors # of procs'''
+  # Determine the number of cores available
+  numProc = cpu_count()
+  # Divide the darts into even workloads among the cores
+  ndiv = int(round(numDarts/numProc))
+  # Run Execution loop
+  start = time()
+  p = Pool(numProc)
+  result = p.map_async( determineNumDartsInCircle, [ndiv]*numProc )
+  poolResult = result.get()
+  numDartsInCircle = sum(poolResult)
+  end = time()
+  totalTime = end - start
+  return estimatePi(numDartsInCircle, numDarts), numDarts, totalTime,\
+         numDarts/totalTime
