@@ -19,6 +19,8 @@ from os import uname
 comp = uname()[1]
 if comp == 'ross-desktop': proc = 'AMD Phenom Quad Core - 3.4 GHz'
 elif comp == 'ross-LBL': proc = 'Intel i7 (8 Core) - 2.4 GHz'
+elif comp == 'ross-Laptop': proc = 'Intel Pentium Dual Core - 2.6 GHz'
+else: proc = 'Unknown computer/processor type'
 # Convert to array for slice indexing
 serialAry = np.array(serialData)
 multiAry = np.array(multiproc)
@@ -42,3 +44,4 @@ ax1.set_ylabel('Log(Execution Time) [s], Solid Line')
 ax2.set_ylabel('Simulation Rate (Darts/Sec) - Dashed Line')
 ax1.legend(loc='upper left')
 show()
+

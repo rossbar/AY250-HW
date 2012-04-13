@@ -3,6 +3,7 @@ from math import sqrt
 from time import time
 from multiprocessing import Pool, cpu_count
 from IPython.parallel import Client
+import sys
 
 def estimatePi(numIn, total):
   return 4 * numIn / float(total)
@@ -60,7 +61,11 @@ def ipythonParEstimator(numDarts):
   # Run Execution loop
   start = time()
   # Generate the client
-  lc = Client()
+  try: lc = Client()
+  except AssertionError:
+    print ''' Warning: ipcluster not initialized. Please run "$ ipcluster start\
+              --n=#" where # is the number of cores you wish to run on.'''
+    sys.exit()
   dview = lc[:]
   par = dview.map_async( determineNumDartsInCircle, [ndiv]*numProc )
   numDartsInCircle = sum( par.result )
