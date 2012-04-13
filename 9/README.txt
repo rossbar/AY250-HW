@@ -28,3 +28,10 @@ Notes:
   evaluateMethods.py file yourself (I couldn't find any pythonic way to easily
   get the type and speed of the system processor. I tried the platform module, 
   but it gave me mostly garbage).
+Observations:
+- From results.png, the parallel methods don't become faster until about 10^4
+  darts are run. This is due to the overhead involved in setting up the 
+  parallel machinery. As the number of darts increases and the solution time
+  becomes dominated by the dart-throwing algorithm itself, the parallel 
+  implementations converge to an execution rate about 6x faster than the
+  serial implementation. 
